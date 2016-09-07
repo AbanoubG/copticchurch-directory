@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Coptic Church Directory</string>
+        <string name="app_name1">Intro Slider</string>
+        <string name="title_activity_welcome">Home Screen</string>
+        <string name="next">NEXT</string>
+        <string name="skip">SKIP</string>
+        <string name="start">GOT IT</string>
+
+        <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+        <string name="play_again">Play Again</string>
+    <string name="church">church</string>
+    <string name="i_sought_i_found">I sought + I found</string>
+    <string name="locates">Coptic Church Directory locates the nearest monastery, retreat center, and Coptic community.</string>
+    <string name="a_church_near_me">A church near me</string>
+    <string name="find">Find the local church in your neighborhood by simply inputting your zip code or address in the search box</string>
+    <string name="find_information">Find Information</string>
+    <string name="info">Coptic Church Directory displays important church information such as clergy contact details and church phone numbers</string>
+</resources>
