@@ -55,18 +55,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        return false;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_item_share) {
+            doShare();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
-    // Call to update the share intent
-    private void setShareIntent(Intent shareIntent) {
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(shareIntent);
+    private void doShare(){
 
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
 
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Coptic Church Directory");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Find the church near you with Coptic Church Directory https://play.google.com/store/apps/details?id=org.directory.copticchurch.copticchurchdirectory ");
 
-        }
+        startActivity(Intent.createChooser(shareIntent, "Share myData to.."));
+
 
     }
 
