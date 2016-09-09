@@ -18,7 +18,6 @@
             android:layout_height="0dp"
             android:src="@drawable/cross_02"
             android:contentDescription="@string/church"
-            android:layout_gravity="center_horizontal"
             android:layout_weight="0.64" />
 
 

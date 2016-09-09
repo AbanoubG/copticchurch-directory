@@ -15,4 +15,9 @@
     <string name="find">Find the local church in your neighborhood by simply inputting your zip code or address in the search box</string>
     <string name="find_information">Find Information</string>
     <string name="info">Coptic Church Directory displays important church information such as clergy contact details and church phone numbers</string>
+    <string name="title">Coptic Church Directory</string>
+    <string name="descrip">Coptic Church Directory locates the nearest church, monastery, retreat center, and Coptic community.</string>
+    <string name="pray">Pray for this service</string>
+    <string name="ack">Acknoweldgments</string>
+    <string name="share">Share</string>
 </resources>
