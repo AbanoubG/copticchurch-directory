@@ -6,12 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.onesignal.OneSignal;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private WebView mywebView;
@@ -20,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OneSignal.startInit(this)
+                .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
+                .init();
         setContentView(R.layout.activity_main);
 
         Toolbar my_toolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -73,6 +81,28 @@ public class MainActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, "Share myData to.."));
 
 
+
+
+    }
+
+    // This fires when a notification is opened by tapping on it or one is received while the app is running.
+    private class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
+        @Override
+        public void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
+
+        }
+    }   public void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
+        try {
+            if (additionalData != null) {
+                if (additionalData.has("actionSelected"))
+                    Log.d("OneSignalExample", "OneSignal notification button with id " + additionalData.getString("actionSelected") + " pressed");
+
+                Log.d("OneSignalExample", "Full additionalData:\n" + additionalData.toString());
+            }
+
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
     }
 
 
