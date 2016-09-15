@@ -18,6 +18,8 @@
     <string name="title">Coptic Church Directory</string>
     <string name="descrip">Coptic Church Directory locates the nearest church, monastery, retreat center, and Coptic community.</string>
     <string name="pray">Pray for this service</string>
-    <string name="ack">Acknoweldgments</string>
+    <string name="ack">Acknowledgements</string>
     <string name="share">Share</string>
+    <string name="acktext">Content such as the description of the church history, church information, and serving clergy have been collected from the various diocese websites. These include the Diocese of Los Angeles, Southern California, and Hawaii, the Diocese of the Southern United States and the Diocese of New York and New England. Nihov’s Worldwide Coptic Directory was also used and played an instrumental role in finding many of the churches along with the description of the church and the serving priest(s).</string>
+    <string name="map_marker">map-marker</string>
 </resources>

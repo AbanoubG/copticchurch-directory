@@ -1,6 +1,7 @@
 package org.directory.copticchurch.copticchurchdirectory;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -40,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         mywebView.loadUrl("http://copticchurch-directory.org/");
         mywebView.setWebViewClient(new WebViewClient());
+
+        mywebView.setWebViewClient(new WebViewClient() {
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                super.onPageStarted(view, url, favicon);
+                findViewById(R.id.progress1).setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                findViewById(R.id.progress1).setVisibility(View.GONE);
+            }
+        });
+
     }
 
     @Override
@@ -59,16 +75,31 @@ public class MainActivity extends AppCompatActivity {
         mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
         return true;
 
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_item_share) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_item_share) {
             doShare();
         }
+
+        if (id == R.id.menu_settings) {
+
+            Intent intent = new Intent(this, AckActivity.class);
+            startActivity(intent);
+
+            return true;
+        }
+
+
         return super.onOptionsItemSelected(item);
+
+
     }
+
+
 
     private void doShare(){
 
@@ -78,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Coptic Church Directory");
         shareIntent.putExtra(Intent.EXTRA_TEXT, "Find the church near you with Coptic Church Directory https://play.google.com/store/apps/details?id=org.directory.copticchurch.copticchurchdirectory ");
 
-        startActivity(Intent.createChooser(shareIntent, "Share myData to.."));
+        startActivity(Intent.createChooser(shareIntent, "Share Coptic Church Directory to.."));
 
 
 
@@ -104,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
             t.printStackTrace();
         }
     }
+
+
+
+
+
+
 
 
 
