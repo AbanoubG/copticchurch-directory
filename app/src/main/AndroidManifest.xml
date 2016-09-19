@@ -20,7 +20,8 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".AckActivity">
+        <activity android:name=".AckActivity"
+                  android:screenOrientation="portrait">
 
         </activity>
 
