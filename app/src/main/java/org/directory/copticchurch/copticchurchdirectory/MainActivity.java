@@ -36,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(my_toolbar);
         //Action bar
         getSupportActionBar().setTitle(R.string.title);
+
+
         //webview for Coptic Church Directory Site
         mywebView = (WebView) findViewById(R.id.webView);
         WebSettings webSettings = mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mywebView.loadUrl("http://copticchurch-directory.org/");
         mywebView.setWebViewClient(new WebViewClient());
 
         mywebView.setWebViewClient(new WebViewClient() {
@@ -53,8 +54,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 findViewById(R.id.progress1).setVisibility(View.GONE);
+                //hide loading image
+                findViewById(R.id.imageView).setVisibility(View.GONE);
+                //show webview
+                findViewById(R.id.webView).setVisibility(View.VISIBLE);
             }
         });
+        mywebView.loadUrl("http://copticchurch-directory.org/");
+
 
     }
 
@@ -65,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+
+
+
 
     } @Override
     public boolean onCreateOptionsMenu(Menu menu) {
