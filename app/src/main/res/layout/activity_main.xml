@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.directory.copticchurch.copticchurchdirectory.MainActivity"
-    android:background="@color/bg_screen3">
+    android:background="@color/colorAccent">
 
     <WebView
         android:layout_width="fill_parent"
@@ -21,10 +21,9 @@
         android:src="@drawable/plain_logo"
         android:contentDescription="@string/church"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/imageView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        />
+        android:id="@+id/imageView" />
 
     <include layout="@layout/toolbar"
         android:id="@+id/my_toolbar"/>
@@ -33,7 +32,7 @@
         android:id="@+id/progress1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_alignTop="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="166dp" />
 </RelativeLayout>

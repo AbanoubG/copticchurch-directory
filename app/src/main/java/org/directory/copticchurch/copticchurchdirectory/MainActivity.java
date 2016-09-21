@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         WebSettings webSettings = mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mywebView.setWebViewClient(new WebViewClient());
-
         mywebView.setWebViewClient(new WebViewClient() {
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
 
